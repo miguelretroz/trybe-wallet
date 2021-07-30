@@ -1,14 +1,14 @@
 const paymentMethods = [
   {
-    value: 'money',
+    value: 'Dinheiro',
     text: 'Dinheiro',
   },
   {
-    value: 'credit',
+    value: 'Cartão de crédito',
     text: 'Cartão de crédito',
   },
   {
-    value: 'debit',
+    value: 'Cartão de débito',
     text: 'Cartão de débito',
   },
 ];

@@ -1,4 +1,6 @@
-import { STORE_EMAIL, GET_CURRENCIES } from './actionsTypes';
+import { STORE_EMAIL, GET_CURRENCIES, STORE_EXPENSE } from './actionsTypes';
+
+const END_POINT = 'https://economia.awesomeapi.com.br/json/all';
 
 export const storeEmail = (email) => ({
   type: STORE_EMAIL,
@@ -11,8 +13,7 @@ export const getCurrencies = (currencies) => ({
 });
 
 export const fetchCurrencies = () => async (dispatch) => {
-  const endPoint = 'https://economia.awesomeapi.com.br/json/all';
-  const response = await fetch(endPoint);
+  const response = await fetch(END_POINT);
   const result = await response.json();
   const currenciesKeys = Object.keys(result);
   const usdtIndex = currenciesKeys.indexOf('USDT');
@@ -21,4 +22,20 @@ export const fetchCurrencies = () => async (dispatch) => {
     .filter((_currencies, index) => index !== usdtIndex); */
 
   dispatch(getCurrencies(currenciesKeys));
+};
+
+export const storeExpense = (expense) => ({
+  type: STORE_EXPENSE,
+  expense,
+});
+
+export const fetchExpenseData = (expense) => async (dispatch) => {
+  const reponse = await fetch(END_POINT);
+  const result = await reponse.json();
+  delete result.USDT;
+  const expenseUpdated = {
+    ...expense,
+    exchangeRates: result,
+  };
+  dispatch(storeExpense(expenseUpdated));
 };

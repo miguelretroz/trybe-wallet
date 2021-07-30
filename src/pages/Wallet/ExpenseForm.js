@@ -8,6 +8,7 @@ import Select from '../../components/Select';
 
 import payMethods from './payMethodsData';
 import expenseTags from './tagsData';
+import { fetchExpenseData } from '../../actions';
 
 class ExpenseForm extends React.Component {
   constructor(props) {
@@ -16,9 +17,9 @@ class ExpenseForm extends React.Component {
     this.state = {
       value: '0',
       description: '',
-      currency: '',
-      method: 'money',
-      tag: 'feeding',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,6 +28,8 @@ class ExpenseForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const { storeExpense } = this.props;
+    storeExpense(this.state);
   }
 
   handleChange({ target }) {
@@ -91,10 +94,15 @@ class ExpenseForm extends React.Component {
 
 ExpenseForm.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
+  storeExpense: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
 });
 
-export default connect(mapStateToProps)(ExpenseForm);
+const mapDispatchToProps = (dispatch) => ({
+  storeExpense: (expense) => dispatch(fetchExpenseData(expense)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseForm);

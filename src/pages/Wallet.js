@@ -28,8 +28,9 @@ class Wallet extends React.Component {
           <span data-testid="email-field">
             { `Email: ${userEmail}` }
           </span>
-          <span data-testid="total-field">
-            { `Despesa Total: ${total}` }
+          <span>
+            {'Despesa Total: '}
+            <span data-testid="total-field">{total}</span>
           </span>
           <span data-testid="header-currency-field">
             BRL

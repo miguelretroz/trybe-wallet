@@ -1,22 +1,22 @@
 const tags = [
   {
-    value: 'feeding',
+    value: 'Alimentação',
     text: 'Alimentação',
   },
   {
-    value: 'entertainment',
+    value: 'Lazer',
     text: 'Lazer',
   },
   {
-    value: 'work',
+    value: 'Trabalho',
     text: 'Trabalho',
   },
   {
-    value: 'transport',
+    value: 'Transporte',
     text: 'Transporte',
   },
   {
-    value: 'health',
+    value: 'Saúde',
     text: 'Saúde',
   },
 ];
