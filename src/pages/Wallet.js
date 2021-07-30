@@ -2,7 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ExpenseForm from './Wallet/ExpenseForm';
+import ExpensesTable from './Wallet/ExpensesTable';
 import { fetchCurrencies } from '../actions';
+
+import floatFormat from '../helpers/floatFormat';
 
 class Wallet extends React.Component {
   componentDidMount() {
@@ -21,7 +24,7 @@ class Wallet extends React.Component {
           </span>
           <span>
             {'Despesa Total: '}
-            <span data-testid="total-field">{expensesTotal}</span>
+            <span data-testid="total-field">{floatFormat(expensesTotal)}</span>
           </span>
           <span data-testid="header-currency-field">
             BRL
@@ -29,6 +32,7 @@ class Wallet extends React.Component {
         </header>
         <main>
           <ExpenseForm />
+          <ExpensesTable />
         </main>
       </div>
     );
