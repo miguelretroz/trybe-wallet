@@ -5,14 +5,6 @@ import ExpenseForm from './Wallet/ExpenseForm';
 import { fetchCurrencies } from '../actions';
 
 class Wallet extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      total: 0,
-    };
-  }
-
   componentDidMount() {
     const { getCurrencies } = this.props;
 
@@ -20,8 +12,7 @@ class Wallet extends React.Component {
   }
 
   render() {
-    const { total } = this.state;
-    const { userEmail } = this.props;
+    const { userEmail, expensesTotal } = this.props;
     return (
       <div>
         <header>
@@ -30,7 +21,7 @@ class Wallet extends React.Component {
           </span>
           <span>
             {'Despesa Total: '}
-            <span data-testid="total-field">{total}</span>
+            <span data-testid="total-field">{expensesTotal}</span>
           </span>
           <span data-testid="header-currency-field">
             BRL
@@ -47,10 +38,16 @@ class Wallet extends React.Component {
 Wallet.propTypes = {
   userEmail: PropTypes.string.isRequired,
   getCurrencies: PropTypes.func.isRequired,
+  expensesTotal: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   userEmail: state.user.email,
+  expensesTotal: state.wallet.expenses
+    .reduce((
+      accumulator,
+      { value, currency, exchangeRates },
+    ) => accumulator + (parseFloat(exchangeRates[currency].ask) * value), 0),
 });
 
 const mapDispatchToProps = (dispatch) => ({
