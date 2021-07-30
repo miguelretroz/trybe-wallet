@@ -14,6 +14,7 @@ class Login extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   emailChecker(value) {
@@ -50,10 +51,18 @@ class Login extends React.Component {
     });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const { email } = this.state;
+    const { saveEmail } = this.props;
+
+    saveEmail(email);
+  }
+
   render() {
     const { email, password, emailIsValid, passwordIsValid } = this.state;
     return (
-      <form>
+      <form onSubmit={ this.handleSubmit }>
         <input
           data-testid="email-input"
           type="text"
