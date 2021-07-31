@@ -18,6 +18,26 @@ class ExpensesTable extends React.Component {
     deleteExpense(parseInt(id, 10));
   }
 
+  renderButtons(index) {
+    const { editExpense } = this.props;
+    return (
+      <td>
+        <Button
+          text="Editar"
+          id={ index }
+          dataTestId="edit-btn"
+          onClick={ editExpense }
+        />
+        <Button
+          text="Deletar"
+          id={ index }
+          dataTestId="delete-btn"
+          onClick={ this.removeExpense }
+        />
+      </td>
+    );
+  }
+
   render() {
     const { expenses } = this.props;
     return (
@@ -53,14 +73,7 @@ class ExpensesTable extends React.Component {
               <td>{ floatFormat((value * exchangeRates[currency].ask)) }</td>
               <td>{ floatFormat(exchangeRates[currency].ask) }</td>
               <td>Real</td>
-              <td>
-                <Button
-                  text="Deletar"
-                  id={ index }
-                  dataTestId="delete-btn"
-                  onClick={ this.removeExpense }
-                />
-              </td>
+              { this.renderButtons(index) }
             </tr>
           ))}
         </tbody>

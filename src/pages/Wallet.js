@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import ExpenseEditForm from './Wallet/ExpenseEditForm';
 import ExpenseForm from './Wallet/ExpenseForm';
 import ExpensesTable from './Wallet/ExpensesTable';
 import { fetchCurrencies } from '../actions';
@@ -8,13 +9,32 @@ import { fetchCurrencies } from '../actions';
 import floatFormat from '../helpers/floatFormat';
 
 class Wallet extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      editIndex: 0,
+      isEditing: false,
+    };
+
+    this.editExpense = this.editExpense.bind(this);
+  }
+
   componentDidMount() {
     const { getCurrencies } = this.props;
 
     getCurrencies();
   }
 
+  editExpense({ target: { id } }) {
+    this.setState((prevState) => ({
+      editIndex: id,
+      isEditing: !prevState.isEditing,
+    }));
+  }
+
   render() {
+    const { isEditing, editIndex } = this.state;
     const { userEmail, expensesTotal } = this.props;
     return (
       <div>
@@ -31,8 +51,8 @@ class Wallet extends React.Component {
           </span>
         </header>
         <main>
-          <ExpenseForm />
-          <ExpensesTable />
+          { isEditing ? <ExpenseEditForm editIndex={ editIndex } /> : <ExpenseForm /> }
+          <ExpensesTable editExpense={ this.editExpense } />
         </main>
       </div>
     );
