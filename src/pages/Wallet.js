@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ExpenseEditForm from './Wallet/ExpenseEditForm';
 import ExpenseForm from './Wallet/ExpenseForm';
 import ExpensesTable from './Wallet/ExpensesTable';
-import { fetchCurrencies } from '../actions';
+import { fetchData, getCurrencies } from '../actions';
 
 import floatFormat from '../helpers/floatFormat';
 
@@ -21,9 +21,9 @@ class Wallet extends React.Component {
   }
 
   componentDidMount() {
-    const { getCurrencies } = this.props;
+    const { fetchCurrencies } = this.props;
 
-    getCurrencies();
+    fetchCurrencies();
   }
 
   editExpense({ target: { id } }) {
@@ -61,7 +61,7 @@ class Wallet extends React.Component {
 
 Wallet.propTypes = {
   userEmail: PropTypes.string.isRequired,
-  getCurrencies: PropTypes.func.isRequired,
+  fetchCurrencies: PropTypes.func.isRequired,
   expensesTotal: PropTypes.number.isRequired,
 };
 
@@ -75,7 +75,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getCurrencies: () => dispatch(fetchCurrencies()),
+  fetchCurrencies: () => dispatch(fetchData(getCurrencies)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wallet);

@@ -17,33 +17,18 @@ export const getCurrencies = (currencies) => ({
   currencies,
 });
 
-export const fetchCurrencies = () => async (dispatch) => {
+export const fetchData = (action, expenseData) => async (dispatch) => {
   const response = await fetch(END_POINT);
   const result = await response.json();
-  const currenciesKeys = Object.keys(result);
-  const usdtIndex = currenciesKeys.indexOf('USDT');
-  // const currenciesData = Object.values(result);
-  currenciesKeys.splice(usdtIndex, 1);/* currenciesData
-    .filter((_currencies, index) => index !== usdtIndex); */
-
-  dispatch(getCurrencies(currenciesKeys));
-};
-
-export const storeExpense = (expense) => ({
-  type: STORE_EXPENSE,
-  expense,
-});
-
-export const fetchExpenseData = (expense) => async (dispatch) => {
-  const reponse = await fetch(END_POINT);
-  const result = await reponse.json();
   delete result.USDT;
-  const expenseUpdated = {
-    ...expense,
-    exchangeRates: result,
-  };
-  dispatch(storeExpense(expenseUpdated));
+  dispatch(action(result, expenseData));
 };
+
+export const storeExpense = (apiData, expenseData) => ({
+  type: STORE_EXPENSE,
+  expenseData,
+  apiData,
+});
 
 export const removeExpense = (expenseIndex) => ({
   type: REMOVE_EXPENSE,

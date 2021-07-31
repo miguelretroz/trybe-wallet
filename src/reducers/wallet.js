@@ -14,12 +14,19 @@ export default function wallet(state = INITIAL_STATE, action) {
   case GET_CURRENCIES:
     return {
       ...state,
-      currencies: action.currencies,
+      currencies: Object.keys(action.currencies),
     };
   case STORE_EXPENSE:
     return {
       ...state,
-      expenses: [...state.expenses, { ...action.expense, id: state.expenses.length }],
+      expenses: [
+        ...state.expenses,
+        {
+          ...action.expenseData,
+          exchangeRates: action.apiData,
+          id: state.expenses.length,
+        },
+      ],
     };
   case REMOVE_EXPENSE:
     return {
