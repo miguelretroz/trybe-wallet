@@ -2,7 +2,8 @@ import {
   STORE_EMAIL,
   GET_CURRENCIES,
   STORE_EXPENSE,
-  REMOVE_EXPENSE } from './actionsTypes';
+  REMOVE_EXPENSE,
+  EDIT_EXPENSE } from './actionsTypes';
 
 const END_POINT = 'https://economia.awesomeapi.com.br/json/all';
 
@@ -47,4 +48,10 @@ export const fetchExpenseData = (expense) => async (dispatch) => {
 export const removeExpense = (expenseIndex) => ({
   type: REMOVE_EXPENSE,
   expenseIndex,
+});
+
+export const editExpense = (updatedExpense, expensePosition) => ({
+  type: EDIT_EXPENSE,
+  updatedExpense,
+  expensePosition,
 });

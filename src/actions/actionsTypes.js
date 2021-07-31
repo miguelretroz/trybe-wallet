@@ -5,3 +5,5 @@ export const GET_CURRENCIES = 'GET_CURRENCIES';
 export const STORE_EXPENSE = 'STORE_EXPENSE';
 
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
+
+export const EDIT_EXPENSE = 'EDIT_EXPENSE';

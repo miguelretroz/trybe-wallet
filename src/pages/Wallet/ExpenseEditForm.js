@@ -8,7 +8,7 @@ import Select from '../../components/Select';
 
 import payMethods from './payMethodsData';
 import expenseTags from './tagsData';
-import { fetchExpenseData } from '../../actions';
+import { editExpense } from '../../actions';
 
 class ExpenseEditForm extends React.Component {
   constructor(props) {
@@ -29,8 +29,8 @@ class ExpenseEditForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { editExpense } = this.props;
-    editExpense(this.state);
+    const { updateExpense, editIndex } = this.props;
+    updateExpense(this.state, parseInt(editIndex, 10));
   }
 
   handleChange({ target }) {
@@ -95,7 +95,7 @@ class ExpenseEditForm extends React.Component {
 
 ExpenseEditForm.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
-  editExpense: PropTypes.func.isRequired,
+  updateExpense: PropTypes.func.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
   editIndex: PropTypes.string.isRequired,
 };
@@ -106,7 +106,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  editExpense: (expense) => dispatch(fetchExpenseData(expense)),
+  updateExpense: (updatedExpense, expensePosition) => {
+    dispatch(editExpense(updatedExpense, expensePosition));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExpenseEditForm);
