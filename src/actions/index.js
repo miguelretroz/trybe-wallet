@@ -1,4 +1,8 @@
-import { STORE_EMAIL, GET_CURRENCIES, STORE_EXPENSE } from './actionsTypes';
+import {
+  STORE_EMAIL,
+  GET_CURRENCIES,
+  STORE_EXPENSE,
+  REMOVE_EXPENSE } from './actionsTypes';
 
 const END_POINT = 'https://economia.awesomeapi.com.br/json/all';
 
@@ -39,3 +43,8 @@ export const fetchExpenseData = (expense) => async (dispatch) => {
   };
   dispatch(storeExpense(expenseUpdated));
 };
+
+export const removeExpense = (expenseIndex) => ({
+  type: REMOVE_EXPENSE,
+  expenseIndex,
+});
