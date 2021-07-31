@@ -10,6 +10,7 @@ class InputText extends React.Component {
         <input
           type="text"
           id={ id }
+          data-testid={ `${name}-input` }
           name={ name }
           value={ value }
           onChange={ onChange }

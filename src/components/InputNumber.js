@@ -10,6 +10,7 @@ class InputNumber extends React.Component {
         <input
           type="number"
           id={ id }
+          data-testid={ `${name}-input` }
           name={ name }
           value={ value }
           onChange={ onChange }

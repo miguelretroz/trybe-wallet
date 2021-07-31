@@ -13,7 +13,6 @@ import { fetchExpenseData } from '../../actions';
 class ExpenseEditForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     const { expenses, editIndex } = props;
     const { value, description, currency, method, tag } = expenses[editIndex];
     this.state = {
@@ -98,7 +97,7 @@ ExpenseEditForm.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
   editExpense: PropTypes.func.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
-  editIndex: PropTypes.number.isRequired,
+  editIndex: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({

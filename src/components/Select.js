@@ -9,6 +9,7 @@ class Select extends React.Component {
         { label }
         <select
           id={ id }
+          data-testid={ `${name}-input` }
           name={ name }
           value={ valueSelected }
           onChange={ onChange }
