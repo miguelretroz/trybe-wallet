@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { storeEmail } from '../actions';
 
+import './Login/Login.css';
+import TrybeLogo from '../Trybe-Logo.svg';
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -71,31 +74,39 @@ class Login extends React.Component {
     if (shouldRedirect) return <Redirect to="/carteira" />;
 
     return (
-      <form onSubmit={ this.handleSubmit }>
-        <input
-          data-testid="email-input"
-          type="text"
-          name="email"
-          placeholder="Email"
-          value={ email }
-          onChange={ this.handleChange }
-        />
-        <input
-          data-testid="password-input"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={ password }
-          onChange={ this.handleChange }
-        />
+      <div className="login-body">
+        <header className="header-login">
+          <h1>Trybe Wallet</h1>
+          <img src={ TrybeLogo } alt="Logo trybe" />
+        </header>
+        <main>
+          <form className="form-login" onSubmit={ this.handleSubmit }>
+            <input
+              data-testid="email-input"
+              type="text"
+              name="email"
+              placeholder="Email"
+              value={ email }
+              onChange={ this.handleChange }
+            />
+            <input
+              data-testid="password-input"
+              type="password"
+              name="password"
+              placeholder="Senha"
+              value={ password }
+              onChange={ this.handleChange }
+            />
 
-        <button
-          type="submit"
-          disabled={ !(emailIsValid && passwordIsValid) }
-        >
-          Entrar
-        </button>
-      </form>
+            <button
+              type="submit"
+              disabled={ !(emailIsValid && passwordIsValid) }
+            >
+              Entrar
+            </button>
+          </form>
+        </main>
+      </div>
     );
   }
 }

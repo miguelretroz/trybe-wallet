@@ -1,0 +1,124 @@
+.login-body {
+  background-color: rgba(46, 193, 139, 1);
+  font-family: Epilogue, sans-serif;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.header-login {
+  align-items: flex-start;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 78px;
+  width: 300px;
+}
+
+.header-login h1 {
+  display: inline-block;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  height: 88px;
+  letter-spacing: 3px;
+  line-height: 49px;
+  margin: 0;
+  width: 165px;
+}
+
+.header-login img {
+  width: 83px;
+}
+
+
+.form-login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 219px;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 47px;
+  width: 295px;
+}
+
+.form-login input {
+  background-color: white;
+  border: none;
+  border-radius: 30px;
+  color: rgb(93, 100, 98);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  padding: 18px 15px;
+  position: absolute;
+  transition: 100ms;
+  width: 295px;
+}
+
+.form-login input:first-child {
+  top: 220px;
+}
+
+.form-login input:nth-child( 2 ) {
+  top: 317px;
+}
+
+.form-login input::placeholder {
+  color: rgba(143, 172, 162, 1);
+  padding: 18px 10px;
+  transition: 100ms;
+}
+
+.form-login input:focus::placeholder {
+  padding: 18px 1px;
+}
+
+.form-login input:focus {
+  background-color: rgb(248, 248, 248);
+  border: none;
+  box-shadow: 1px 3px rgb(1, 128, 87);
+  outline: none;
+}
+
+.form-login input:first-child:focus {
+  top: 219px;
+}
+
+.form-login input:nth-child( 2 ):focus {
+  top: 316px;
+}
+
+.form-login button {
+  background-color: rgba(48, 91, 208, 1);
+  border: none;
+  border-radius: 30px;
+  box-shadow: 1px 3px rgb(38, 59, 175);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  height: 37px;
+  padding-right: 70px;
+  position: absolute;
+  top: 410px;
+  transition: 100ms;
+  width: 144px;
+}
+
+.form-login button:disabled {
+  background-color: rgba(35, 145, 104, 1);
+  box-shadow: none;
+  color: rgba(143, 172, 162, 1);
+  top: 413px;
+}
+
+.form-login button:hover:enabled {
+  background-color: rgb(57, 108, 247);
+  box-shadow: none;
+  top: 413px;
+}
