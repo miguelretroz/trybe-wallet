@@ -1,6 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import {
+  RiExchangeDollarFill,
+  RiEditLine,
+  RiDeleteBin2Line,
+} from 'react-icons/ri';
+import { BsArrowRight } from 'react-icons/bs';
 
 import floatFormat from '../../helpers/floatFormat';
 import { removeExpense } from '../../actions';
@@ -18,18 +24,36 @@ class ExpensesTable extends React.Component {
     deleteExpense(parseInt(id, 10));
   }
 
+  renderTHead() {
+    return (
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Tag</th>
+          <th>Método de pagamento</th>
+          <th>Valor</th>
+          <th>Moeda</th>
+          <th>Câmbio utilizado</th>
+          <th>Valor convertido</th>
+          <th>Moeda de conversão</th>
+          <th>Editar/Excluir</th>
+        </tr>
+      </thead>
+    );
+  }
+
   renderButtons(index) {
     const { editExpense } = this.props;
     return (
-      <td>
+      <td className="td-buttons">
         <Button
-          text="Editar"
+          text={ <RiEditLine id={ index } /> }
           id={ index }
           dataTestId="edit-btn"
           onClick={ editExpense }
         />
         <Button
-          text="Deletar"
+          text={ <RiDeleteBin2Line id={ index } /> }
           id={ index }
           dataTestId="delete-btn"
           onClick={ this.removeExpense }
@@ -42,19 +66,7 @@ class ExpensesTable extends React.Component {
     const { expenses } = this.props;
     return (
       <table>
-        <thead>
-          <tr>
-            <th>Descrição</th>
-            <th>Tag</th>
-            <th>Método de pagamento</th>
-            <th>Valor</th>
-            <th>Moeda</th>
-            <th>Câmbio utilizado</th>
-            <th>Valor convertido</th>
-            <th>Moeda de conversão</th>
-            <th>Editar/Excluir</th>
-          </tr>
-        </thead>
+        {this.renderTHead()}
         <tbody>
           {expenses.map(({
             description,
@@ -65,14 +77,32 @@ class ExpensesTable extends React.Component {
             exchangeRates,
           }, index) => (
             <tr key={ index }>
-              <td>{ description }</td>
-              <td>{ tag }</td>
-              <td>{ method }</td>
-              <td>{ value }</td>
-              <td>{ exchangeRates[currency].name.split('/')[0] }</td>
-              <td>{ floatFormat((value * exchangeRates[currency].ask)) }</td>
-              <td>{ floatFormat(exchangeRates[currency].ask) }</td>
-              <td>Real</td>
+              <td className="td-description">{ description }</td>
+              <td className="td-tag">{ tag }</td>
+              <td className="td-method">{ method }</td>
+              <td className="td-value">{ value }</td>
+              <td className="td-code">{ currency }</td>
+              <td className="td-exchange-icon">
+                <BsArrowRight />
+                <RiExchangeDollarFill className="exchange-icon" />
+                <BsArrowRight />
+              </td>
+              <td
+                className="td-currency"
+              >
+                { exchangeRates[currency].name.split('/')[0] }
+              </td>
+              <td
+                className="td-converted-value"
+              >
+                { floatFormat((value * exchangeRates[currency].ask)) }
+              </td>
+              <td
+                className="td-exchange-value"
+              >
+                { floatFormat(exchangeRates[currency].ask) }
+              </td>
+              <td className="td-real">Real</td>
               { this.renderButtons(index) }
             </tr>
           ))}

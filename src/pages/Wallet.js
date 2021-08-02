@@ -8,6 +8,8 @@ import { fetchData, getCurrencies } from '../actions';
 
 import floatFormat from '../helpers/floatFormat';
 
+import './Wallet/Wallet.css';
+
 class Wallet extends React.Component {
   constructor(props) {
     super(props);
@@ -42,13 +44,15 @@ class Wallet extends React.Component {
           <span data-testid="email-field">
             { `Email: ${userEmail}` }
           </span>
-          <span>
-            {'Despesa Total: '}
-            <span data-testid="total-field">{floatFormat(expensesTotal)}</span>
-          </span>
-          <span data-testid="header-currency-field">
-            BRL
-          </span>
+          <div className="expense-total">
+            <span>
+              {'Despesa Total: '}
+              <span data-testid="total-field">{floatFormat(expensesTotal)}</span>
+            </span>
+            <span data-testid="header-currency-field">
+              BRL
+            </span>
+          </div>
         </header>
         <main>
           { isEditing ? <ExpenseEditForm editIndex={ editIndex } /> : <ExpenseForm /> }

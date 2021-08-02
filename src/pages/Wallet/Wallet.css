@@ -1,0 +1,173 @@
+html {
+  background-color: rgba(241, 237, 237, 1);
+  font-family: Epilogue, sans-serif;
+  height: 100vmax;
+}
+
+th {
+  display: none;
+}
+
+header {
+  background-color: rgba(46, 193, 139, 1);
+  height: 120px;
+  width: 100%;
+}
+
+form {
+  border-bottom: solid 1px black;
+}
+
+table , tbody {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+tbody tr {
+  background-color: white;
+  border-bottom: solid 2px rgb(146, 146, 146);
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  height: 120px;
+  padding: 5px;
+  width: 100%;
+}
+
+tbody tr:hover {
+  background-color: rgb(243, 242, 242);
+  border-top: solid 2px rgb(146, 146, 146);
+  box-shadow: 0 3px rgb(146, 146, 146);
+  position: relative;
+  top: -5px;
+}
+
+td {
+  display: inline-block;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.td-description {
+  font-weight: 600;
+  margin-bottom: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.td-tag {
+  display: none;
+}
+
+.td-method {
+  display: inline-block;
+  left: -119px;
+  order: 1;
+  position: relative;
+  top: 10px;
+}
+
+.td-method:before {
+  content: 'Método: ';
+  font-weight: 600;
+}
+
+.td-currency {
+  display: none;
+}
+
+.td-value {
+  position: relative;
+  top: -10px;
+}
+
+.td-value:before {
+  content: 'Valor: ';
+  font-weight: 600;
+  position: relative;
+  top: -1px;
+}
+
+.td-code {
+  font-size: 12px;
+  left: 2px;
+  position: relative;
+  top: -6px;
+}
+
+.td-exchange-value {
+  font-size: 16px;
+  position: relative;
+  top: -20px;
+}
+
+.td-exchange-value:before {
+  content: 'Cambio: ';
+  font-weight: 600;
+}
+
+.td-exchange-value:after {
+  content: ' BRL';
+  font-size: 12px;
+}
+
+.td-converted-value {
+  left: 4px;
+  position: relative;
+  top: -10px;
+  width: 50%;
+}
+
+.td-converted-value:after {
+  content: ' BRL';
+  font-size: 12px;
+}
+
+.td-exchange-icon {
+  font-size: 20px;
+  left: 3px;
+  position: relative;
+  top: -12px;
+}
+
+.td-real {
+  display: none;
+}
+
+td button {
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  outline: none;
+  padding: 0;
+  position: relative;
+}
+
+td button:first-child {
+  color: rgb(36, 36, 36);
+  top: 7px;
+}
+
+td button:nth-child( 2 ) {
+  color: rgb(173, 1, 1);
+  top: 50px;
+}
+
+td button:first-child:hover {
+  color: rgb(116, 116, 116);
+}
+
+
+td button:nth-child( 2 ):hover {
+  color: rgb(241, 0, 0);
+}
+
+.td-buttons {
+  height: 100px;
+  left: 90%;
+  position: absolute;
+  width: 30px;
+}
