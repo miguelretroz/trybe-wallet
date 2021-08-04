@@ -10,7 +10,6 @@ import { BsArrowRight } from 'react-icons/bs';
 
 import floatFormat from '../../helpers/floatFormat';
 import { removeExpense } from '../../actions';
-import Button from '../../components/Button';
 
 class ExpensesTable extends React.Component {
   constructor(props) {
@@ -46,18 +45,22 @@ class ExpensesTable extends React.Component {
     const { editExpense } = this.props;
     return (
       <td className="td-buttons">
-        <Button
-          text={ <RiEditLine id={ index } /> }
+        <button
+          data-testid="edit-btn"
           id={ index }
-          dataTestId="edit-btn"
           onClick={ editExpense }
-        />
-        <Button
-          text={ <RiDeleteBin2Line id={ index } /> }
+          type="button"
+        >
+          <RiEditLine pointerEvents="none" />
+        </button>
+        <button
+          data-testid="delete-btn"
           id={ index }
-          dataTestId="delete-btn"
           onClick={ this.removeExpense }
-        />
+          type="button"
+        >
+          <RiDeleteBin2Line pointerEvents="none" />
+        </button>
       </td>
     );
   }
