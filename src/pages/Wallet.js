@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { FiUser } from 'react-icons/fi';
+import { RiAddLine } from 'react-icons/ri';
 import ExpenseEditForm from './Wallet/ExpenseEditForm';
 import ExpenseForm from './Wallet/ExpenseForm';
 import ExpensesTable from './Wallet/ExpensesTable';
@@ -17,9 +19,11 @@ class Wallet extends React.Component {
     this.state = {
       editIndex: 0,
       isEditing: false,
+      isShowForms: 'hide-forms',
     };
 
     this.editExpense = this.editExpense.bind(this);
+    this.toogleForm = this.toggleForm.bind(this);
   }
 
   componentDidMount() {
@@ -35,16 +39,31 @@ class Wallet extends React.Component {
     }));
   }
 
-  render() {
+  toggleForm() {
+    this.setState((prevState) => ({
+      isShowForms: (prevState.isShowForms === 'show-forms') ? 'hide-forms' : 'show-forms',
+    }));
+  }
+
+  renderForms() {
     const { isEditing, editIndex } = this.state;
+    if (isEditing) {
+      return <ExpenseEditForm editIndex={ editIndex } />;
+    }
+    return <ExpenseForm />;
+  }
+
+  render() {
+    const { isShowForms } = this.state;
     const { userEmail, expensesTotal } = this.props;
     return (
       <div>
-        <header>
-          <span data-testid="email-field">
-            { `Email: ${userEmail}` }
-          </span>
-          <div className="expense-total">
+        <header className="wallet-header">
+          <div className="wallet-email-field" data-testid="email-field">
+            <FiUser className="wallet-email-icon" />
+            <span className="wallet-email">{userEmail}</span>
+          </div>
+          <div className="wallet-total-expenses">
             <span>
               {'Despesa Total: '}
               <span data-testid="total-field">{floatFormat(expensesTotal)}</span>
@@ -53,9 +72,18 @@ class Wallet extends React.Component {
               BRL
             </span>
           </div>
+          <button
+            className="wallet-header-btn-add"
+            onClick={ this.toggleForm }
+            type="button"
+          >
+            <RiAddLine pointerEvents="none" />
+          </button>
         </header>
         <main>
-          { isEditing ? <ExpenseEditForm editIndex={ editIndex } /> : <ExpenseForm /> }
+          <div className={ `wallet-forms ${isShowForms}` }>
+            { this.renderForms() }
+          </div>
           <ExpensesTable editExpense={ this.editExpense } />
         </main>
       </div>
