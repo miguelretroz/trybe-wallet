@@ -2,13 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import InputNumber from '../../components/InputNumber';
-import InputText from '../../components/InputText';
 import Select from '../../components/Select';
 
 import payMethods from './payMethodsData';
 import expenseTags from './tagsData';
 import { editExpense } from '../../actions';
+import Input from '../../components/Input';
 
 class ExpenseEditForm extends React.Component {
   constructor(props) {
@@ -41,25 +40,11 @@ class ExpenseEditForm extends React.Component {
     });
   }
 
-  render() {
-    const { value, description, currency, method, tag } = this.state;
+  renderSelects() {
     const { currencies } = this.props;
+    const { currency, method, tag } = this.state;
     return (
-      <form onSubmit={ this.handleSubmit }>
-        <InputNumber
-          id="expenseValue"
-          label="Valor"
-          name="value"
-          value={ value }
-          onChange={ this.handleChange }
-        />
-        <InputText
-          id="expenseDescribe"
-          label="Descrição"
-          name="description"
-          value={ description }
-          onChange={ this.handleChange }
-        />
+      <>
         <Select
           id="expenseCurrency"
           label="Moeda"
@@ -85,6 +70,31 @@ class ExpenseEditForm extends React.Component {
           valueSelected={ tag }
           onChange={ this.handleChange }
         />
+      </>
+    );
+  }
+
+  render() {
+    const { value, description } = this.state;
+    return (
+      <form onSubmit={ this.handleSubmit }>
+        <Input
+          type="number"
+          id="expenseValue"
+          label="Valor"
+          name="value"
+          value={ `${value}` }
+          onChange={ this.handleChange }
+        />
+        <Input
+          type="text"
+          id="expenseDescribe"
+          label="Descrição"
+          name="description"
+          value={ description }
+          onChange={ this.handleChange }
+        />
+        { this.renderSelects() }
         <button type="submit">
           Editar despesa
         </button>
