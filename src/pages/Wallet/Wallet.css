@@ -148,12 +148,12 @@ td button {
 
 td button:first-child {
   color: rgb(36, 36, 36);
-  top: 7px;
+  padding: 10px;
 }
 
 td button:nth-child( 2 ) {
   color: rgb(173, 1, 1);
-  top: 50px;
+  padding: 10px;
 }
 
 td button:first-child:hover {
@@ -167,7 +167,56 @@ td button:nth-child( 2 ):hover {
 
 .td-buttons {
   height: 100px;
-  left: 90%;
+  left: 87%;
   position: absolute;
   width: 30px;
 }
+
+/* -----Header----- */
+.wallet-header {
+  align-items: center;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  flex-flow: column wrap;
+  font-weight: 600;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.wallet-email-field {
+  display: flex;
+  justify-content: center;
+}
+
+.wallet-email-icon {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.wallet-email {
+  font-size: 20px;
+}
+
+.wallet-header-btn-add {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 45px;
+  height: 30px;
+  left: 90%;
+  order: 2;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  top: 80px;
+  width: 30px;
+}
+
+.wallet-header-btn-add svg {
+  box-sizing: border-box;
+  left: -8px;
+  position: relative;
+  top: -8px;
+}
+
