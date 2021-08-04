@@ -23,7 +23,7 @@ class Wallet extends React.Component {
     };
 
     this.editExpense = this.editExpense.bind(this);
-    this.toogleForm = this.toggleForm.bind(this);
+    this.toggleForm = this.toggleForm.bind(this);
   }
 
   componentDidMount() {
