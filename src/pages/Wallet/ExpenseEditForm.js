@@ -77,7 +77,7 @@ class ExpenseEditForm extends React.Component {
   render() {
     const { value, description } = this.state;
     return (
-      <form onSubmit={ this.handleSubmit }>
+      <form className="edit-forms" onSubmit={ this.handleSubmit }>
         <Input
           type="number"
           id="expenseValue"
