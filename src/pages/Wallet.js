@@ -12,6 +12,8 @@ import floatFormat from '../helpers/floatFormat';
 
 import './Wallet/Wallet.css';
 
+const showForms = 'show-forms';
+
 class Wallet extends React.Component {
   constructor(props) {
     super(props);
@@ -36,13 +38,15 @@ class Wallet extends React.Component {
     this.setState((prevState) => ({
       editIndex: id,
       isEditing: !prevState.isEditing,
+      isShowForms: showForms,
     }));
   }
 
   toggleForm() {
+    const delay = 350;
     this.setState((prevState) => ({
-      isShowForms: (prevState.isShowForms === 'show-forms') ? 'hide-forms' : 'show-forms',
-    }));
+      isShowForms: (prevState.isShowForms === showForms) ? 'hide-forms' : showForms,
+    }), () => setTimeout(() => this.setState({ isEditing: false }), delay));
   }
 
   renderForms() {
