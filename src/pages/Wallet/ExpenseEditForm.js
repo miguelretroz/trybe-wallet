@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { AiFillCloseCircle } from 'react-icons/ai';
 
 import Select from '../../components/Select';
 
@@ -27,9 +28,11 @@ class ExpenseEditForm extends React.Component {
   }
 
   handleSubmit(e) {
+    const { closeEditForm } = this.props;
     e.preventDefault();
     const { updateExpense, editIndex } = this.props;
     updateExpense(this.state, parseInt(editIndex, 10));
+    closeEditForm();
   }
 
   handleChange({ target }) {
@@ -75,6 +78,7 @@ class ExpenseEditForm extends React.Component {
   }
 
   render() {
+    const { closeEditForm } = this.props;
     const { value, description } = this.state;
     return (
       <form className="edit-forms" onSubmit={ this.handleSubmit }>
@@ -95,9 +99,14 @@ class ExpenseEditForm extends React.Component {
           onChange={ this.handleChange }
         />
         { this.renderSelects() }
-        <button type="submit">
-          Editar despesa
-        </button>
+        <div className="edit-buttons-container">
+          <button type="submit">
+            Editar despesa
+          </button>
+          <button type="button" onClick={ closeEditForm }>
+            <AiFillCloseCircle pointerEvents="none" />
+          </button>
+        </div>
       </form>
     );
   }
@@ -108,6 +117,7 @@ ExpenseEditForm.propTypes = {
   updateExpense: PropTypes.func.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
   editIndex: PropTypes.string.isRequired,
+  closeEditForm: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

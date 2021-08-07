@@ -18,14 +18,15 @@ class Wallet extends React.Component {
   constructor(props) {
     super(props);
 
+    this.editExpense = this.editExpense.bind(this);
+    this.toggleForm = this.toggleForm.bind(this);
+    this.closeEditForm = this.closeEditForm.bind(this);
+
     this.state = {
       editIndex: 0,
       isEditing: false,
       isShowForms: 'hide-forms',
     };
-
-    this.editExpense = this.editExpense.bind(this);
-    this.toggleForm = this.toggleForm.bind(this);
   }
 
   componentDidMount() {
@@ -49,10 +50,18 @@ class Wallet extends React.Component {
     }), () => setTimeout(() => this.setState({ isEditing: false }), delay));
   }
 
+  closeEditForm() {
+    this.setState({
+      isEditing: false,
+    });
+  }
+
   renderForms() {
     const { isEditing, editIndex } = this.state;
     if (isEditing) {
-      return <ExpenseEditForm editIndex={ editIndex } />;
+      return (
+        <ExpenseEditForm editIndex={ editIndex } closeEditForm={ this.closeEditForm } />
+      );
     }
     return <ExpenseForm />;
   }

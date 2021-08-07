@@ -14,12 +14,7 @@ header {
   width: 100%;
 }
 
-form {
-  border-bottom: solid 1px black;
-}
-
 table , tbody {
-  border-top: 1px solid rgb(146, 146, 146);
   display: block;
   margin: 0;
   padding: 0;
@@ -35,14 +30,6 @@ tbody tr {
   height: 120px;
   padding: 5px;
   width: 100%;
-}
-
-tbody tr:hover {
-  background-color: rgb(243, 242, 242);
-  border-top: solid 2px rgb(146, 146, 146);
-  box-shadow: 0 3px rgb(146, 146, 146);
-  position: relative;
-  top: -5px;
 }
 
 td {
@@ -181,10 +168,26 @@ td button:nth-child( 2 ) {
   top: 2px;
 }
 
+.edit-forms button:first-child {
+  width: 80%;
+}
+
+.edit-forms button:nth-child( 2 ) {
+  align-content: center;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: rgb(173, 1, 1);
+  font-size: 25px;
+  height: 25px;
+  padding: 0;
+  position: static;
+  width: 25px;
+}
+
 td button:first-child:hover {
   color: rgb(116, 116, 116);
 }
-
 
 td button:nth-child( 2 ):hover {
   color: rgb(241, 0, 0);
@@ -283,3 +286,13 @@ td button:nth-child( 2 ):hover {
   margin: 0;
 }
 
+.edit-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.edit-forms button:nth-child( 2 ):hover {
+  color: rgb(241, 0, 0);
+  padding: 0;
+}
