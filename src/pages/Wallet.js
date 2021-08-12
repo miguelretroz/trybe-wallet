@@ -7,6 +7,7 @@ import ExpenseEditForm from './Wallet/ExpenseEditForm';
 import ExpenseForm from './Wallet/ExpenseForm';
 import ExpensesTable from './Wallet/ExpensesTable';
 import { fetchData, getCurrencies } from '../actions';
+import Context from '../helpers/ContextApi';
 
 import floatFormat from '../helpers/floatFormat';
 
@@ -35,7 +36,7 @@ class Wallet extends React.Component {
     fetchCurrencies();
   }
 
-  editExpense({ target: { id } }) {
+  editExpense({ id }) {
     this.setState((prevState) => ({
       editIndex: id,
       isEditing: !prevState.isEditing,
@@ -70,7 +71,7 @@ class Wallet extends React.Component {
     const { isShowForms } = this.state;
     const { userEmail, expensesTotal } = this.props;
     return (
-      <div>
+      <Context.Provider value={ { editExpense: this.editExpense } }>
         <header className="wallet-header">
           <div className="wallet-email-field" data-testid="email-field">
             <FiUser className="wallet-email-icon" />
@@ -99,7 +100,7 @@ class Wallet extends React.Component {
           </div>
           <ExpensesTable editExpense={ this.editExpense } />
         </main>
-      </div>
+      </Context.Provider>
     );
   }
 }
