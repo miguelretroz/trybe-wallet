@@ -184,6 +184,7 @@ describe('8 - Desenvolva a opção de "Adicionar despesa" na sua tabela de gasto
         tag: 'Lazer',
         description: 'Dez dólares',
         exchangeRates: mockData,
+        isEditing: false,
       },
     ];
 
@@ -209,6 +210,7 @@ describe('8 - Desenvolva a opção de "Adicionar despesa" na sua tabela de gasto
         tag: 'Lazer',
         description: 'Dez dólares',
         exchangeRates: mockData,
+        isEditing: false,
       },
       {
         id: 1,
@@ -218,6 +220,7 @@ describe('8 - Desenvolva a opção de "Adicionar despesa" na sua tabela de gasto
         tag: 'Trabalho',
         description: 'Vinte euros',
         exchangeRates: mockData,
+        isEditing: false,
       },
     ];
 
@@ -306,6 +309,7 @@ describe('10 - Crie um botão para deletar uma despesa da tabela contendo as seg
         tag: 'Trabalho',
         description: 'Vinte euros',
         exchangeRates: mockData,
+        isEditing: false,
       },
     ];
 
@@ -327,6 +331,7 @@ describe('10 - Crie um botão para deletar uma despesa da tabela contendo as seg
         tag: 'Trabalho',
         description: 'Vinte euros',
         exchangeRates: mockData,
+        isEditing: false,
       },
     ];
 

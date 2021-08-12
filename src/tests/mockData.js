@@ -256,6 +256,7 @@ export const initialStateWithExpenses = {
         tag: 'Lazer',
         description: 'Dez dólares',
         exchangeRates: response,
+        isEditing: false,
       },
       {
         id: 1,
@@ -265,6 +266,7 @@ export const initialStateWithExpenses = {
         tag: 'Trabalho',
         description: 'Vinte euros',
         exchangeRates: response,
+        isEditing: false,
       },
     ],
   },

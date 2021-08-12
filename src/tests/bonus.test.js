@@ -59,6 +59,7 @@ describe('11 - Crie um botão para editar uma despesa da tabela contendo as segu
         tag: 'Trabalho',
         description: 'Cem dólares canadenses',
         exchangeRates: mockData,
+        isEditing: false
       },
       {
         id: 1,
@@ -68,6 +69,7 @@ describe('11 - Crie um botão para editar uma despesa da tabela contendo as segu
         tag: 'Trabalho',
         description: 'Vinte euros',
         exchangeRates: mockData,
+        isEditing: false,
       },
     ];
 
