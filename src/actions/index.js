@@ -3,7 +3,9 @@ import {
   GET_CURRENCIES,
   STORE_EXPENSE,
   REMOVE_EXPENSE,
-  EDIT_EXPENSE } from './actionsTypes';
+  EDIT_EXPENSE,
+  EDITING_EXPENSE,
+} from './actionsTypes';
 
 const END_POINT = 'https://economia.awesomeapi.com.br/json/all';
 
@@ -39,4 +41,9 @@ export const editExpense = (updatedExpense, expensePosition) => ({
   type: EDIT_EXPENSE,
   updatedExpense,
   expensePosition,
+});
+
+export const editingExpense = (expensePosition) => ({
+  type: EDITING_EXPENSE,
+  expensePosition: Number(expensePosition),
 });

@@ -6,7 +6,7 @@ import { RiAddLine } from 'react-icons/ri';
 import ExpenseEditForm from './Wallet/ExpenseEditForm';
 import ExpenseForm from './Wallet/ExpenseForm';
 import ExpensesTable from './Wallet/ExpensesTable';
-import { fetchData, getCurrencies } from '../actions';
+import { fetchData, getCurrencies, editingExpense } from '../actions';
 import Context from '../helpers/ContextApi';
 
 import floatFormat from '../helpers/floatFormat';
@@ -37,6 +37,8 @@ class Wallet extends React.Component {
   }
 
   editExpense({ id }) {
+    const { setEditing } = this.props;
+    setEditing(id);
     this.setState((prevState) => ({
       editIndex: id,
       isEditing: !prevState.isEditing,
@@ -48,10 +50,16 @@ class Wallet extends React.Component {
     const delay = 350;
     this.setState((prevState) => ({
       isShowForms: (prevState.isShowForms === showForms) ? 'hide-forms' : showForms,
-    }), () => setTimeout(() => this.setState({ isEditing: false }), delay));
+    }), () => setTimeout(() => {
+      const { setEditing } = this.props;
+      setEditing();
+      this.setState({ isEditing: false });
+    }, delay));
   }
 
   closeEditForm() {
+    const { setEditing } = this.props;
+    setEditing();
     this.setState({
       isEditing: false,
     });
@@ -106,22 +114,24 @@ class Wallet extends React.Component {
 }
 
 Wallet.propTypes = {
-  userEmail: PropTypes.string.isRequired,
-  fetchCurrencies: PropTypes.func.isRequired,
   expensesTotal: PropTypes.number.isRequired,
+  fetchCurrencies: PropTypes.func.isRequired,
+  setEditing: PropTypes.func.isRequired,
+  userEmail: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  userEmail: state.user.email,
   expensesTotal: state.wallet.expenses
     .reduce((
       accumulator,
       { value, currency, exchangeRates },
     ) => accumulator + (parseFloat(exchangeRates[currency].ask) * value), 0),
+  userEmail: state.user.email,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCurrencies: () => dispatch(fetchData(getCurrencies)),
+  setEditing: (expensePosition) => dispatch(editingExpense(expensePosition)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wallet);

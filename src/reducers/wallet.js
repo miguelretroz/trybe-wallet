@@ -2,12 +2,22 @@ import {
   GET_CURRENCIES,
   REMOVE_EXPENSE,
   STORE_EXPENSE,
-  EDIT_EXPENSE } from '../actions/actionsTypes';
+  EDIT_EXPENSE,
+  EDITING_EXPENSE,
+} from '../actions/actionsTypes';
 
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
 };
+
+const isEditingChecker = (
+  state,
+  { expensePosition },
+) => state.expenses.map((expense, index) => ({
+  ...expense,
+  isEditing: (index === expensePosition),
+}));
 
 export default function wallet(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -25,6 +35,7 @@ export default function wallet(state = INITIAL_STATE, action) {
           ...action.expenseData,
           exchangeRates: action.apiData,
           id: state.expenses.length,
+          isEditing: false,
         },
       ],
     };
@@ -32,6 +43,11 @@ export default function wallet(state = INITIAL_STATE, action) {
     return {
       ...state,
       expenses: state.expenses.filter((_expense, index) => index !== action.expenseIndex),
+    };
+  case EDITING_EXPENSE:
+    return {
+      ...state,
+      expenses: isEditingChecker(state, action),
     };
   case EDIT_EXPENSE:
     return {
@@ -41,6 +57,7 @@ export default function wallet(state = INITIAL_STATE, action) {
           return {
             ...expense,
             ...action.updatedExpense,
+            isEditing: false,
           };
         }
         return expense;
