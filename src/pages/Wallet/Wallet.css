@@ -1,6 +1,5 @@
-html {
+html body {
   background-color: rgba(241, 237, 237, 1);
-  font-family: Epilogue, sans-serif;
   height: 100vmax;
 }
 
@@ -29,6 +28,8 @@ tbody tr {
   flex-flow: row wrap;
   height: 120px;
   padding: 5px;
+  padding-bottom: 0;
+  padding-top: 10px;
   width: 100%;
 }
 
@@ -41,7 +42,7 @@ td {
 
 .td-description {
   font-weight: 600;
-  margin-bottom: 10px;
+  height: 25px;
   position: relative;
   width: 100%;
 }
@@ -55,7 +56,7 @@ td {
   left: -119px;
   order: 1;
   position: relative;
-  top: 10px;
+  top: 5px;
 }
 
 .td-method:before {
@@ -224,6 +225,8 @@ td button:nth-child( 2 ):hover {
 
 .wallet-email {
   font-size: 20px;
+  line-height: 30px;
+  text-align: center;
 }
 
 .wallet-header-btn-add {
@@ -307,4 +310,8 @@ td button:nth-child( 2 ):hover {
 .edit-forms button:nth-child( 2 ):hover {
   color: rgb(241, 0, 0);
   padding: 0;
+}
+
+.expense-is-editing {
+  background-color: rgb(255, 250, 181);
 }

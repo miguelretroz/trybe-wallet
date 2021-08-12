@@ -2,3 +2,9 @@
   font-family: Epilogue;
   src: url('./fonts/Epilogue/Epilogue-VariableFont_wght.ttf') format('truetype');
 }
+
+* {
+  font-family: Epilogue, sans-serif;
+  margin: 0;
+  padding: 0;
+}
