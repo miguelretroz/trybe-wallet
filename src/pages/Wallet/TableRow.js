@@ -28,7 +28,7 @@ class TableRow extends React.Component {
   renderButtons(index) {
     return (
       <Context.Consumer>
-        { ({ editExpense }) => (
+        { ({ editExpense, closeEditForm }) => (
           <td className="td-buttons">
             <button
               data-testid="edit-btn"
@@ -41,7 +41,10 @@ class TableRow extends React.Component {
             <button
               data-testid="delete-btn"
               id={ index }
-              onClick={ this.removeExpense }
+              onClick={ (e) => {
+                closeEditForm();
+                this.removeExpense(e);
+              } }
               type="button"
             >
               <RiDeleteBin2Line pointerEvents="none" />

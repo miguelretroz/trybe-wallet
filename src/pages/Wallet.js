@@ -79,7 +79,9 @@ class Wallet extends React.Component {
     const { isShowForms } = this.state;
     const { userEmail, expensesTotal } = this.props;
     return (
-      <Context.Provider value={ { editExpense: this.editExpense } }>
+      <Context.Provider
+        value={ { editExpense: this.editExpense, closeEditForm: this.closeEditForm } }
+      >
         <header className="wallet-header">
           <div className="wallet-email-field" data-testid="email-field">
             <FiUser className="wallet-email-icon" />
