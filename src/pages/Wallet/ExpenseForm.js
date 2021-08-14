@@ -7,7 +7,7 @@ import Select from '../../components/Select';
 
 import payMethods from './payMethodsData';
 import expenseTags from './tagsData';
-import { fetchData, storeExpense } from '../../actions';
+import { editingExpense, fetchData, storeExpense } from '../../actions';
 
 class ExpenseForm extends React.Component {
   constructor(props) {
@@ -23,6 +23,11 @@ class ExpenseForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    const { setEditing } = this.props;
+    setEditing();
   }
 
   handleSubmit(e) {
@@ -105,6 +110,7 @@ class ExpenseForm extends React.Component {
 ExpenseForm.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
   saveExpense: PropTypes.func.isRequired,
+  setEditing: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -113,6 +119,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   saveExpense: (action, state) => dispatch(fetchData(action, state)),
+  setEditing: (expensePosition) => dispatch(editingExpense(expensePosition)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExpenseForm);
