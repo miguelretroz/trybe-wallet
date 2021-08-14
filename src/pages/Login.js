@@ -6,6 +6,7 @@ import { storeEmail } from '../actions';
 
 import './Login/Login.css';
 import TrybeLogo from '../Trybe-Logo.svg';
+import WalletLogo from '../wallet-logo.svg';
 
 class Login extends React.Component {
   constructor(props) {
@@ -75,11 +76,11 @@ class Login extends React.Component {
 
     return (
       <div className="login-body">
-        <header className="header-login">
-          <h1>Trybe Wallet</h1>
-          <img src={ TrybeLogo } alt="Logo trybe" />
-        </header>
-        <main>
+        <main className="login-main">
+          <div className="header-login">
+            <h1>Trybe Wallet</h1>
+            <img alt="Logo trybe" src={ TrybeLogo } />
+          </div>
           <form className="form-login" onSubmit={ this.handleSubmit }>
             <input
               data-testid="email-input"
@@ -106,6 +107,9 @@ class Login extends React.Component {
             </button>
           </form>
         </main>
+        <aside className="login-aside">
+          <img alt="Wallet logo" src={ WalletLogo } />
+        </aside>
       </div>
     );
   }

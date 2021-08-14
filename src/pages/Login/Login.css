@@ -1,21 +1,25 @@
-.login-body {
+html body {
   background-color: rgba(46, 193, 139, 1);
-  font-family: Epilogue, sans-serif;
+  height: 100vh;
+}
+
+.login-body {
   height: 100vh;
   margin: 0;
   padding: 0;
 }
 
 .header-login {
-  align-items: flex-start;
+  align-items: center;
+  box-sizing: border-box;
   color: white;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 78px;
-  width: 300px;
+  max-width: 300px;
+  padding-top: 11.87vh;
 }
 
 .header-login h1 {
@@ -44,29 +48,31 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 47px;
-  width: 295px;
+  max-width: 380px;
+  width: 90%;
 }
 
 .form-login input {
   background-color: white;
   border: none;
   border-radius: 30px;
+  box-sizing: border-box;
   color: rgb(93, 100, 98);
   font-size: 20px;
   font-weight: 700;
   margin: 0;
   padding: 18px 15px;
-  position: absolute;
+  position: relative;
   transition: 100ms;
-  width: 295px;
+  width: 100%;
 }
 
 .form-login input:first-child {
-  top: 220px;
+  top: 0;
 }
 
 .form-login input:nth-child( 2 ) {
-  top: 317px;
+  top: 0;
 }
 
 .form-login input::placeholder {
@@ -87,11 +93,11 @@
 }
 
 .form-login input:first-child:focus {
-  top: 219px;
+  top: -3px;
 }
 
 .form-login input:nth-child( 2 ):focus {
-  top: 316px;
+  top: -3px;
 }
 
 .form-login button {
@@ -104,8 +110,8 @@
   font-weight: 700;
   height: 37px;
   padding-right: 70px;
-  position: absolute;
-  top: 410px;
+  position: relative;
+  top: 0;
   transition: 100ms;
   width: 144px;
 }
@@ -114,11 +120,66 @@
   background-color: rgba(35, 145, 104, 1);
   box-shadow: none;
   color: rgba(143, 172, 162, 1);
-  top: 413px;
+  top: 0;
 }
 
 .form-login button:hover:enabled {
   background-color: rgb(57, 108, 247);
   box-shadow: none;
-  top: 413px;
+  top: 3px;
+}
+
+.login-aside img {
+  display: none;
+}
+
+
+@media screen and ( min-width : 768px ) {
+
+  html body {
+    background-color: rgba(207, 240, 225, 1);
+  }
+
+  .login-body {
+    height: 100vh;
+  }
+
+  .login-main {
+    background-color: rgba(46, 193, 139, 1);
+    height: 100vh;
+    margin-left: auto;
+    padding-bottom: 1px;
+    width: 42.05%;
+  }
+
+  .header-login {
+    box-sizing: border-box;
+    min-height: 172px;
+    padding-top: 27.6vh;
+    width: 55%;
+  }
+
+  .header-login img {
+    max-width: 83px;
+  }
+
+  .login-aside img {
+    display: initial;
+    left: 8.27vmax;
+    position: absolute;
+    top: 15.36vh;
+    width: 35vw;
+  }
+
+  .form-login input {
+    max-width: 380px;
+    width: 90%;
+  }
+
+  @media screen and ( max-height : 730px ) {
+
+    .login-main {
+      height: 730px;
+    }
+  }
 }
