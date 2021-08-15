@@ -1,9 +1,5 @@
-html body {
-  background-color: rgba(46, 193, 139, 1);
-  height: 100vh;
-}
-
 .login-body {
+  background-color: rgba(46, 193, 139, 1);
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -136,11 +132,8 @@ html body {
 
 @media screen and ( min-width : 768px ) {
 
-  html body {
-    background-color: rgba(207, 240, 225, 1);
-  }
-
   .login-body {
+    background-color: rgba(207, 240, 225, 1);
     height: 100vh;
   }
 
@@ -177,6 +170,10 @@ html body {
   }
 
   @media screen and ( max-height : 730px ) {
+
+    .login-body {
+      height: 730px;
+    }
 
     .login-main {
       height: 730px;

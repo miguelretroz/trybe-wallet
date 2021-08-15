@@ -66,11 +66,11 @@ class TableRow extends React.Component {
       tag,
       value,
     } = this.props;
+    const exchangeCode = exchangeRates[currency].codein;
     return (
       <tr className={ (isEditing) ? 'expense-is-editing' : '' } key={ index }>
         <td className="td-description">{ description }</td>
-        <td className="td-tag">{ tag }</td>
-        <td className="td-method">{ method }</td>
+        <td className="td-title-value">Valor:</td>
         <td className="td-value">{ value }</td>
         <td className="td-code">{ currency }</td>
         <td className="td-exchange-icon">
@@ -88,12 +88,18 @@ class TableRow extends React.Component {
         >
           { floatFormat((value * exchangeRates[currency].ask)) }
         </td>
-        <td
-          className="td-exchange-value"
-        >
+        <td className="td-converted-code">{ exchangeCode }</td>
+        <td className="td-title-exchange">Cambio:</td>
+        <td className="td-exchange-value">
           { floatFormat(exchangeRates[currency].ask) }
         </td>
+        <td className="td-exchange-code">
+          { exchangeCode }
+        </td>
+        <td className="td-title-method">Método:</td>
+        <td className="td-method">{ method }</td>
         <td className="td-real">Real</td>
+        <td className="td-tag">{ tag }</td>
         { this.renderButtons(index) }
       </tr>
     );
