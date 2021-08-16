@@ -275,3 +275,26 @@ td button:nth-child( 2 ):hover {
 .expense-is-editing {
   background-color: rgba(255, 252, 212, 1);
 }
+
+@media screen and ( min-width : 768px ) {
+
+  th , .td-description , .td-value , .td-currency , .td-converted-value {
+    display: table-cell;
+    margin: 0;
+    width: auto;
+  }
+
+  .td-exchange-value , .td-value , .td-method , .td-real , .td-tag {
+    display: table-cell;
+    margin: 0;
+    width: auto;
+  }
+
+  .td-title-value , .td-code , .td-exchange-icon , .td-converted-code {
+    display: none;
+  }
+
+  .td-title-exchange , .td-exchange-code , .td-title-method {
+    display: none;
+  }
+}

@@ -88,6 +88,7 @@ class TableRow extends React.Component {
         >
           { floatFormat((value * exchangeRates[currency].ask)) }
         </td>
+        <td className="td-real">Real</td>
         <td className="td-converted-code">{ exchangeCode }</td>
         <td className="td-title-exchange">Cambio:</td>
         <td className="td-exchange-value">
@@ -98,7 +99,6 @@ class TableRow extends React.Component {
         </td>
         <td className="td-title-method">Método:</td>
         <td className="td-method">{ method }</td>
-        <td className="td-real">Real</td>
         <td className="td-tag">{ tag }</td>
         { this.renderButtons(index) }
       </tr>
