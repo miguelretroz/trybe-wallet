@@ -12,6 +12,7 @@ import Context from '../helpers/ContextApi';
 import floatFormat from '../helpers/floatFormat';
 
 import './Wallet/Wallet.css';
+import WalletLogo from '../wallet-logo.svg';
 
 const showForms = 'show-forms';
 
@@ -83,6 +84,7 @@ class Wallet extends React.Component {
         value={ { editExpense: this.editExpense, closeEditForm: this.closeEditForm } }
       >
         <header className="wallet-header">
+          <img alt="wallet-logo" className="wallet-logo" src={ WalletLogo } />
           <div className="wallet-email-field" data-testid="email-field">
             <FiUser className="wallet-email-icon" />
             <span className="wallet-email">{userEmail}</span>

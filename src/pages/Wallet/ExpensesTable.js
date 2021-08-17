@@ -17,7 +17,9 @@ class ExpensesTable extends React.Component {
           <th>Câmbio utilizado</th>
           <th>Método de pagamento</th>
           <th>Tag</th>
-          <th>Editar/Excluir</th>
+          <th>
+            Editar/ Excluir
+          </th>
         </tr>
       </thead>
     );
