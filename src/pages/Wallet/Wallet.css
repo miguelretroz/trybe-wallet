@@ -116,6 +116,7 @@ td button {
   left: 68%;
   margin: 0;
   position: absolute;
+  right: 0;
   top: 70%;
 }
 
@@ -200,6 +201,7 @@ td button:nth-child( 2 ):hover {
   overflow: hidden;
   padding: 0;
   position: absolute;
+  right: 10px;
   top: 50px;
   width: 30px;
 }
