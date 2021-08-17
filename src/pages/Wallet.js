@@ -106,7 +106,7 @@ class Wallet extends React.Component {
             <RiAddLine pointerEvents="none" />
           </button>
         </header>
-        <main>
+        <main className="wallet-main">
           <div className={ `wallet-forms ${isShowForms}` }>
             { this.renderForms() }
           </div>

@@ -1,3 +1,7 @@
+.wallet-main {
+  overflow: hidden;
+}
+
 th {
   display: none;
 }
@@ -8,9 +12,26 @@ header {
   width: 100%;
 }
 
+table {
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  z-index: -10;
+}
+
+thead {
+  background-color: rgba(52, 52, 52, 1);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 3px black;
+  color: white;
+  display: none;
+  height: 70px;
+  margin-bottom: 3px;
+}
+
 table , tbody {
   display: block;
-  margin: 0;
   padding: 0;
 }
 
@@ -323,6 +344,7 @@ td button:nth-child( 2 ):hover {
   }
 
   .wallet-forms label input , .wallet-forms label select {
+    height: 30px;
     margin-top: 5px;
   }
 
@@ -396,12 +418,22 @@ td button:nth-child( 2 ):hover {
     display: none;
   }
 
+  table {
+    margin-top: -20px;
+  }
+
+  thead {
+    display: block;
+  }
+
   thead tr {
     align-items: center;
     box-sizing: border-box;
     display: flex;
-    height: 80px;
+    height: 60px;
     justify-content: space-around;
+    overflow: hidden;
+    padding-top: 30px;
     width: 100vw;
   }
 
