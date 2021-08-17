@@ -278,6 +278,26 @@ td button:nth-child( 2 ):hover {
   background-color: rgba(255, 252, 212, 1);
 }
 
+@media screen and ( min-width : 359px ) {
+
+  .td-description {
+    width: 90%;
+  }
+
+  .td-buttons {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    justify-content: space-around;
+    margin: 0;
+    margin-top: -60px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 45px;
+  }
+}
+
 @media screen and ( min-width : 768px ) {
 
   th , .td-description , .td-value , .td-currency , .td-converted-value {
