@@ -113,7 +113,6 @@ td button {
 .td-buttons {
   display: flex;
   height: 45px;
-  left: 68%;
   margin: 0;
   position: absolute;
   right: 0;
@@ -200,7 +199,6 @@ td button:nth-child( 2 ):hover {
   color: white;
   font-size: 45px;
   height: 30px;
-  left: 89%;
   order: 2;
   overflow: hidden;
   padding: 0;
@@ -316,7 +314,7 @@ td button:nth-child( 2 ):hover {
   .wallet-forms label {
     display: flex;
     flex-direction: column;
-    flex-grow: 5;
+    flex-grow: 1;
     height: 70px;
     justify-content: flex-end;
     margin-left: 25px;
@@ -337,8 +335,8 @@ td button:nth-child( 2 ):hover {
   }
 
   .wallet-forms label:nth-child( 2 ) {
-    flex-grow: 50;
-    width: 70%;
+    flex-grow: 5;
+    width: 72%;
   }
 
   .wallet-forms label:nth-child( 4 ) , .wallet-forms label:nth-child( 5 ) {
@@ -355,6 +353,28 @@ td button:nth-child( 2 ):hover {
     top: 7px;
     width: 100px;
   }
+
+  .wallet-header-btn-add {
+    display: none;
+  }
+
+  .show-forms , .hide-forms {
+    height: 190px;
+  }
+
+  .wallet-forms label:nth-child( 2 ) {
+    flex-grow: 5;
+    width: 65%;
+  }
+
+  .wallet-forms label:nth-child( 3 ) {
+    height: 50px;
+    margin-left: 20px;
+  }
+}
+
+
+@media screen and ( min-width : 900px ) {
 
   th , .td-description , .td-value , .td-currency , .td-converted-value {
     display: table-cell;
@@ -374,5 +394,21 @@ td button:nth-child( 2 ):hover {
 
   .td-title-exchange , .td-exchange-code , .td-title-method {
     display: none;
+  }
+
+  thead tr {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    height: 80px;
+    justify-content: space-around;
+    width: 100vw;
+  }
+
+  th {
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: center;
+    width: 90px;
   }
 }
