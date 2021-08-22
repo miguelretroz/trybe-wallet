@@ -381,6 +381,14 @@ td button:nth-child( 2 ):hover {
     width: 100px;
   }
 
+  .wallet-email-field {
+    margin-left: -214px;
+    margin-top: -15px;
+    position: relative;
+    right: -50%;
+    top: 50%;
+  }
+
   .wallet-header-btn-add {
     display: none;
   }
