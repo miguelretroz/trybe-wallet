@@ -2,6 +2,11 @@
   overflow: hidden;
 }
 
+tbody {
+  position: relative;
+  z-index: 100;
+}
+
 th {
   display: none;
 }
@@ -14,9 +19,7 @@ header {
 
 table {
   overflow: hidden;
-  position: relative;
   width: 100vw;
-  z-index: -10;
 }
 
 thead {
@@ -28,6 +31,8 @@ thead {
   display: none;
   height: 70px;
   margin-bottom: 3px;
+  position: relative;
+  z-index: -10;
 }
 
 table , tbody {
@@ -442,5 +447,90 @@ td button:nth-child( 2 ):hover {
     font-size: 14px;
     text-align: center;
     width: 90px;
+  }
+
+  tbody tr {
+    height: 100px;
+  }
+
+  .td-buttons {
+    display: flex;
+    flex-direction: row;
+    height: 45px;
+    left: 0;
+    margin: 0;
+    position: relative;
+    top: 0;
+  }
+}
+
+@media screen and ( min-width : 1200px ) {
+
+  .show-forms , .hide-forms {
+    height: 100px;
+  }
+
+  .wallet-forms form {
+    align-items: center;
+    height: 100px;
+    justify-content: space-around;
+    padding: 0;
+  }
+
+  .wallet-forms label {
+    align-items: center;
+    flex-direction: row;
+    flex-grow: 0;
+    margin: 0;
+  }
+
+  .wallet-forms label:nth-child( 2 ) , .wallet-forms label:nth-child( 5 ) {
+    flex-grow: 0;
+    margin: 0;
+  }
+
+  .wallet-forms label input , .wallet-forms label select {
+    border-radius: 22px;
+    font-size: 16px;
+    height: 50px;
+    margin: 0;
+    margin-left: 5px;
+  }
+
+  .wallet-forms button {
+    border-radius: 22px;
+    height: 50px;
+    width: 13.17vw;
+  }
+
+  .edit-forms button:first-child {
+    margin-right: 10px;
+    width: 10.6vw;
+  }
+
+  .edit-buttons-container {
+    align-items: center;
+    width: auto;
+  }
+
+  .wallet-forms label:first-child {
+    width: 9.44vw;
+  }
+
+  .wallet-forms label:nth-child( 2 ) {
+    width: 21.6vw;
+  }
+
+  .wallet-forms label:nth-child( 3 ) {
+    margin: 0;
+    width: 10.6vw;
+  }
+
+  .wallet-forms label:nth-child( 4 ) {
+    width: 23.9vw;
+  }
+
+  .wallet-forms label:nth-child( 5 ) {
+    width: 17.2vw;
   }
 }
