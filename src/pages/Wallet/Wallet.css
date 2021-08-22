@@ -435,6 +435,7 @@ td button:nth-child( 2 ):hover {
     align-items: center;
     box-sizing: border-box;
     display: flex;
+    flex-wrap: nowrap;
     height: 60px;
     justify-content: space-around;
     overflow: hidden;
@@ -446,14 +447,36 @@ td button:nth-child( 2 ):hover {
     box-sizing: border-box;
     font-size: 14px;
     text-align: center;
-    width: 90px;
+    width: 100%;
   }
 
   tbody tr {
-    height: 100px;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: auto;
+    justify-content: space-around;
+    overflow: auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+  }
+
+  .td-description , .td-value , .td-currency , .td-converted-value , .td-real {
+    border-right: 1px solid rgb(190, 190, 190);
+    width: 100%;
+  }
+
+  .td-exchange-value , .td-method , .td-value , .td-tag , .td-buttons {
+    border-right: 1px solid rgb(190, 190, 190);
+    width: 100%;
+  }
+
+  .td-value {
+    width: 90%;
   }
 
   .td-buttons {
+    border: none;
     display: flex;
     flex-direction: row;
     height: 45px;
