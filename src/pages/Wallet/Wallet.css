@@ -395,6 +395,7 @@ td button:nth-child( 2 ):hover {
 
   .show-forms , .hide-forms {
     height: 190px;
+    margin-bottom: 2px;
   }
 
   .wallet-forms label:nth-child( 2 ) {
@@ -481,6 +482,10 @@ td button:nth-child( 2 ):hover {
 
   .td-value {
     width: 90%;
+  }
+
+  .td-currency {
+    width: 110%;
   }
 
   .td-buttons {
