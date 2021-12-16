@@ -1,6 +1,10 @@
-html body {
-  background-color: rgba(241, 237, 237, 1);
-  height: 100vmax;
+.wallet-main {
+  overflow: hidden;
+}
+
+tbody {
+  position: relative;
+  z-index: 100;
 }
 
 th {
@@ -13,9 +17,26 @@ header {
   width: 100%;
 }
 
+table {
+  overflow: hidden;
+  width: 100vw;
+}
+
+thead {
+  background-color: rgba(52, 52, 52, 1);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 3px black;
+  color: white;
+  display: none;
+  height: 70px;
+  margin-bottom: 3px;
+  position: relative;
+  z-index: -10;
+}
+
 table , tbody {
   display: block;
-  margin: 0;
   padding: 0;
 }
 
@@ -26,103 +47,66 @@ tbody tr {
   box-sizing: border-box;
   display: flex;
   flex-flow: row wrap;
-  height: 120px;
+  overflow: auto;
+  overflow-x: hidden;
   padding: 5px;
-  padding-bottom: 0;
+  padding-bottom: 5px;
   padding-top: 10px;
+  position: relative;
   width: 100%;
 }
 
 td {
   display: inline-block;
   font-size: 16px;
+  height: 16px;
   margin: 0;
+  margin-bottom: 5px;
   padding: 0;
+  position: relative;
 }
 
 .td-description {
   font-weight: 600;
-  height: 25px;
-  position: relative;
+  height: auto;
+  margin-bottom: 10px;
   width: 100%;
-}
-
-.td-tag {
-  display: none;
-}
-
-.td-method {
-  display: inline-block;
-  left: -119px;
-  order: 1;
-  position: relative;
-  top: 5px;
-}
-
-.td-method:before {
-  content: 'Método: ';
-  font-weight: 600;
 }
 
 .td-currency {
   display: none;
 }
 
-.td-value {
-  position: relative;
-  top: -10px;
+.td-title-value , .td-title-exchange , .td-title-method {
+  font-size: 14px;
+  font-weight: 700;
+  width: 100%;
 }
 
-.td-value:before {
-  content: 'Valor: ';
-  font-weight: 600;
-  position: relative;
-  top: -1px;
+.td-value , .td-exchange-value , .td-method {
+  margin-left: 10px;
 }
 
-.td-code {
+.td-code , .td-converted-code {
   font-size: 12px;
-  left: 2px;
-  position: relative;
-  top: -6px;
-}
-
-.td-exchange-value {
-  font-size: 16px;
-  position: relative;
-  top: -20px;
-}
-
-.td-exchange-value:before {
-  content: 'Cambio: ';
-  font-weight: 600;
-}
-
-.td-exchange-value:after {
-  content: ' BRL';
-  font-size: 12px;
-}
-
-.td-converted-value {
-  left: 4px;
-  position: relative;
-  top: -10px;
-  width: 50%;
-}
-
-.td-converted-value:after {
-  content: ' BRL';
-  font-size: 12px;
+  margin-left: 3px;
+  top: 4px;
 }
 
 .td-exchange-icon {
   font-size: 20px;
-  left: 3px;
-  position: relative;
-  top: -12px;
+  top: -2px;
+}
+
+.td-exchange-code {
+  width: 70%;
 }
 
 .td-real {
+  display: none;
+}
+
+.td-tag {
   display: none;
 }
 
@@ -132,7 +116,6 @@ td button {
   font-size: 25px;
   outline: none;
   padding: 0;
-  position: relative;
 }
 
 .wallet-forms input , .wallet-forms select , .wallet-forms button {
@@ -153,8 +136,18 @@ td button {
   position: relative;
 }
 
+.td-buttons {
+  display: flex;
+  height: 45px;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 70%;
+}
+
 td button:first-child {
   color: rgb(36, 36, 36);
+  margin-right: 10px;
   padding: 10px;
 }
 
@@ -194,13 +187,6 @@ td button:nth-child( 2 ):hover {
   color: rgb(241, 0, 0);
 }
 
-.td-buttons {
-  height: 100px;
-  left: 87%;
-  position: absolute;
-  width: 30px;
-}
-
 /* -----Header----- */
 .wallet-header {
   align-items: center;
@@ -211,6 +197,10 @@ td button:nth-child( 2 ):hover {
   font-weight: 600;
   justify-content: space-between;
   padding: 10px;
+}
+
+.wallet-logo {
+  display: none;
 }
 
 .wallet-email-field {
@@ -235,12 +225,12 @@ td button:nth-child( 2 ):hover {
   color: white;
   font-size: 45px;
   height: 30px;
-  left: 90%;
   order: 2;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  top: 80px;
+  right: 10px;
+  top: 50px;
   width: 30px;
 }
 
@@ -314,4 +304,269 @@ td button:nth-child( 2 ):hover {
 
 .expense-is-editing {
   background-color: rgba(255, 252, 212, 1);
+}
+
+@media screen and ( min-width : 359px ) {
+
+  .td-description {
+    width: 90%;
+  }
+
+  .td-buttons {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    justify-content: space-around;
+    margin: 0;
+    margin-top: -60px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 45px;
+  }
+}
+
+@media screen and ( min-width : 500px ) {
+
+  .wallet-forms form {
+    flex-flow: row wrap;
+    height: auto;
+  }
+
+  .show-forms {
+    height: 190px;
+  }
+
+  .wallet-forms label {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 70px;
+    justify-content: flex-end;
+    margin-left: 25px;
+    text-align: center;
+    width: 100px;
+  }
+
+  .wallet-forms label input , .wallet-forms label select {
+    height: 30px;
+    margin-top: 5px;
+  }
+
+  .wallet-forms label:first-child , .wallet-forms label:nth-child( 3 ) {
+    margin-left: 0;
+  }
+
+  .wallet-forms label:first-child , .wallet-forms label:nth-child( 2 ) {
+    height: 50px;
+  }
+
+  .wallet-forms label:nth-child( 2 ) {
+    flex-grow: 5;
+    width: 72%;
+  }
+
+  .wallet-forms label:nth-child( 4 ) , .wallet-forms label:nth-child( 5 ) {
+    width: 160px;
+  }
+}
+
+@media screen and ( min-width : 768px ) {
+
+  .wallet-logo {
+    display: inline-block;
+    left: 7px;
+    position: absolute;
+    top: 7px;
+    width: 100px;
+  }
+
+  .wallet-email-field {
+    margin-left: -214px;
+    margin-top: -15px;
+    position: relative;
+    right: -50%;
+    top: 50%;
+  }
+
+  .wallet-header-btn-add {
+    display: none;
+  }
+
+  .show-forms , .hide-forms {
+    height: 190px;
+    margin-bottom: 2px;
+  }
+
+  .wallet-forms label:nth-child( 2 ) {
+    flex-grow: 5;
+    width: 65%;
+  }
+
+  .wallet-forms label:nth-child( 3 ) {
+    height: 50px;
+    margin-left: 20px;
+  }
+}
+
+
+@media screen and ( min-width : 900px ) {
+
+  th , .td-description , .td-value , .td-currency , .td-converted-value {
+    display: table-cell;
+    margin: 0;
+    width: auto;
+  }
+
+  .td-exchange-value , .td-value , .td-method , .td-real , .td-tag {
+    display: table-cell;
+    margin: 0;
+    width: auto;
+  }
+
+  .td-title-value , .td-code , .td-exchange-icon , .td-converted-code {
+    display: none;
+  }
+
+  .td-title-exchange , .td-exchange-code , .td-title-method {
+    display: none;
+  }
+
+  table {
+    margin-top: -20px;
+  }
+
+  thead {
+    display: block;
+  }
+
+  thead tr {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: nowrap;
+    height: 60px;
+    justify-content: space-around;
+    overflow: hidden;
+    padding-top: 30px;
+    width: 100vw;
+  }
+
+  th {
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+  }
+
+  tbody tr {
+    align-items: center;
+    flex-wrap: nowrap;
+    height: auto;
+    justify-content: space-around;
+    overflow: auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+  }
+
+  .td-description , .td-value , .td-currency , .td-converted-value , .td-real {
+    border-right: 1px solid rgb(190, 190, 190);
+    width: 100%;
+  }
+
+  .td-exchange-value , .td-method , .td-value , .td-tag , .td-buttons {
+    border-right: 1px solid rgb(190, 190, 190);
+    width: 100%;
+  }
+
+  .td-value {
+    width: 90%;
+  }
+
+  .td-currency {
+    width: 110%;
+  }
+
+  .td-buttons {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    height: 45px;
+    left: 0;
+    margin: 0;
+    position: relative;
+    top: 0;
+  }
+}
+
+@media screen and ( min-width : 1200px ) {
+
+  .show-forms , .hide-forms {
+    height: 100px;
+  }
+
+  .wallet-forms form {
+    align-items: center;
+    height: 100px;
+    justify-content: space-around;
+    padding: 0;
+  }
+
+  .wallet-forms label {
+    align-items: center;
+    flex-direction: row;
+    flex-grow: 0;
+    margin: 0;
+  }
+
+  .wallet-forms label:nth-child( 2 ) , .wallet-forms label:nth-child( 5 ) {
+    flex-grow: 0;
+    margin: 0;
+  }
+
+  .wallet-forms label input , .wallet-forms label select {
+    border-radius: 22px;
+    font-size: 16px;
+    height: 50px;
+    margin: 0;
+    margin-left: 5px;
+  }
+
+  .wallet-forms button {
+    border-radius: 22px;
+    height: 50px;
+    width: 13.17vw;
+  }
+
+  .edit-forms button:first-child {
+    margin-right: 10px;
+    width: 10.6vw;
+  }
+
+  .edit-buttons-container {
+    align-items: center;
+    width: auto;
+  }
+
+  .wallet-forms label:first-child {
+    width: 9.44vw;
+  }
+
+  .wallet-forms label:nth-child( 2 ) {
+    width: 21.6vw;
+  }
+
+  .wallet-forms label:nth-child( 3 ) {
+    margin: 0;
+    width: 10.6vw;
+  }
+
+  .wallet-forms label:nth-child( 4 ) {
+    width: 23.9vw;
+  }
+
+  .wallet-forms label:nth-child( 5 ) {
+    width: 17.2vw;
+  }
 }

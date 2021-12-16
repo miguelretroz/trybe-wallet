@@ -244,7 +244,7 @@ describe('9 - Desenvolva uma tabela com os gastos contendo as seguintes caracter
     const thCambio = screen.getByRole('columnheader', { name: 'Câmbio utilizado' });
     const thValorConvertido = screen.getByRole('columnheader', { name: 'Valor convertido' });
     const thMoedaConversao = screen.getByRole('columnheader', { name: 'Moeda de conversão' });
-    const thEditarExcluir = screen.getByRole('columnheader', { name: 'Editar/Excluir' });
+    const thEditarExcluir = screen.getByRole('columnheader', { name: 'Editar/ Excluir' });
 
     expect(thDescricao).toBeInTheDocument();
     expect(thTag).toBeInTheDocument();
