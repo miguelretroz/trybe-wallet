@@ -30,6 +30,35 @@ A ideia era construir um CRUD com React e Redux, focando principalmente no uso d
     - CSS
 </a>
 
+## <img alt="layout icon" src="./public/readme/layout-icon.svg" width="22"/> Layout
+
+O layout da aplicação foi desenvolvindo utilizando <a href="https://www.figma.com/">Figma</a>:
+
+<a href="#">
+  <img alt="layout figma" align="center" src="./public/readme/trybe-wallet-figma.png">
+</a>
+
+> O figma do projeto pode ser acessado pelo link abaixo
+
+🔹<a href="https://www.figma.com/file/gnqt7Sp864YnWGtPJYFLw0/Trybe-Wallet?node-id=0%3A1">
+  <img align="center" src="./public/readme/figma-logo.svg" height="20">
+    - Figma do projeto
+</a>
+
+Com foco na responsividade o layout foi todo construído baseado no conceito do *Mobile First*, ou seja, foi inicialmente desenvolvido para dispositivos com tela menores e depois para telas maiores.
+
+<a href="#">
+  <img alt="page login layout" align="center" src="./public/readme/trybe-wallet-login-layout.gif">
+</a>
+
+> Responsividade página de login
+
+<a href="#">
+  <img alt="page main layout" align="center" src="./public/readme/trybe-wallet-main-layout.gif">
+</a>
+
+> Responsividade página principal
+
 
 ## 🪛 Desenvolvimento
 Basta realizar o clone do projeto, instalar das dependências:
