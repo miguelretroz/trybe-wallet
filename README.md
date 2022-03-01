@@ -1,4 +1,4 @@
-# <img alt="trybe wallet logo" align="center" src="./public/readme/trybe-wallet-logo.svg" width="40"/> Trybe Wallet
+# <a href="#-trybe-wallet"><img alt="trybe wallet logo" align="center" src="./public/readme/trybe-wallet-logo.svg" width="40"/></a> Trybe Wallet
 
 > Projeto desenvolvido no curso da <a href="https://www.betrybe.com" >Trybe</a>
 
@@ -30,11 +30,11 @@ A ideia era construir um CRUD com React e Redux, focando principalmente no uso d
     - CSS
 </a>
 
-## <img alt="layout icon" src="./public/readme/layout-icon.svg" width="22"/> Layout
+## <a href="#-layout"><img alt="layout icon" src="./public/readme/layout-icon.svg" width="22"/></a> Layout
 
 O layout da aplicação foi desenvolvindo utilizando <a href="https://www.figma.com/">Figma</a>:
 
-<a href="#">
+<a href="#-layout">
   <img alt="layout figma" align="center" src="./public/readme/trybe-wallet-figma.png">
 </a>
 
@@ -47,13 +47,13 @@ O layout da aplicação foi desenvolvindo utilizando <a href="https://www.figma.
 
 Com foco na responsividade o layout foi todo construído baseado no conceito do *Mobile First*, ou seja, foi inicialmente desenvolvido para dispositivos com tela menores e depois para telas maiores.
 
-<a href="#">
+<a href="#-layout">
   <img alt="page login layout" align="center" src="./public/readme/trybe-wallet-login-layout.gif">
 </a>
 
 > Responsividade página de login
 
-<a href="#">
+<a href="#-layout">
   <img alt="page main layout" align="center" src="./public/readme/trybe-wallet-main-layout.gif">
 </a>
 
