@@ -2,7 +2,7 @@
 
 > Projeto desenvolvido no curso da <a href="https://www.betrybe.com" >Trybe</a>
 
-Carteira virtual com o foco no registro e controle de despesas.
+Carteira virtual com o foco na conversão de moedas, registro e controle de despesas.
 
 Projeto construído 100% no Front-end, com tecnológias de front, sem um Back-end para persistência de dados.
 
