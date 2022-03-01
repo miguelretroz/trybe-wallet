@@ -72,17 +72,17 @@ A primeira página é a de login e para acessar a página da carteira baste real
 Como a aplicação não possue banco de dados e nem um back-end, não é feita nenhum autenticação ou verificação, basta inserir um email no formato válido *(Ex: email@email.com)* e uma senha com no mínimo 6 digitos.
 
 <div align="center">
-  <a href="#">
+  <a href="#-página-de-login">
     <img  alt="page login" align="center" src="./public/readme/trybe-wallet-login.gif" height="500px">
   </a>
 </div>
 
-### <a href="#"><img alt="wallet" align="center" src="./public/readme/wallet-icon.svg" width="25"/></a> Página da carteira
+### <a href="#-página-da-carteira"><img alt="wallet" align="center" src="./public/readme/wallet-icon.svg" width="25"/></a> Página da carteira
 
 Na página da carteira é possível visualizar as despesas já existentes, adicionar uma nova, editar e remover.
 
 <div align="center">
-  <a href="#">
+  <a href="#-página-da-carteira">
     <img alt="page wallet" align="center" src="./public/readme/trybe-wallet-main.gif" height="500px">
   </a>
 </div>
