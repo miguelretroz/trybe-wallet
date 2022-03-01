@@ -31,6 +31,36 @@ A ideia era construir um CRUD com React e Redux, focando principalmente no uso d
 </a>
 
 
+## 🪛 Desenvolvimento
+Basta realizar o clone do projeto, instalar das dependências:
+```bash
+npm install
+```
+
+E rodar:
+```bash
+npm start
+```
+para executar a aplicação.
+
+### ⚙️Scripts
+> O projeto possui três scripts principais. Para executá-los é necessário realizar a instalação das dependências com `npm install`
+
+Para executar a aplicação:
+```bash
+npm start
+```
+
+Para executar o `ESLint` e realizar a análise estática do código **JavaScript**:
+```bash
+npm run lint
+```
+
+Para executar o `StyleLint` e realizar a análise estática do código **CSS**:
+```bash
+npm run lint:styles
+```
+
 ## 👤Contatos
 🔹<a href = "mailto:contato.miguelretroz@gmail.com" target="_blank">
   <img align="center" src="./public/readme/gmail-logo.svg" width="20">
