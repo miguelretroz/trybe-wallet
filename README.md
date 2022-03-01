@@ -57,8 +57,35 @@ Com foco na responsividade o layout foi todo construído baseado no conceito do 
   <img alt="page main layout" align="center" src="./public/readme/trybe-wallet-main-layout.gif">
 </a>
 
-> Responsividade página principal
+> Responsividade página da carteira
 
+## 🖱️Uso
+> A aplicação pode ser acessada através do deploy realizado na plataforma gratuita do <a href="https://vercel.com/" >Vercel</a>:
+
+🔹<a  href="https://miguel-retroz-trybe-wallet.vercel.app" target="_blank"><img alt="vercel logo" 
+  align="center" src="./public/readme/vercel-logo.svg" width="20"/> Vercel - Deploy da aplicação</a>
+
+### 🔐 Página de login
+
+A primeira página é a de login e para acessar a página da carteira baste realizar o login.
+
+Como a aplicação não possue banco de dados e nem um back-end, não é feita nenhum autenticação ou verificação, basta inserir um email no formato válido *(Ex: email@email.com)* e uma senha com no mínimo 6 digitos.
+
+<div align="center">
+  <a href="#">
+    <img  alt="page login" align="center" src="./public/readme/trybe-wallet-login.gif" height="500px">
+  </a>
+</div>
+
+### <a href="#"><img alt="wallet" align="center" src="./public/readme/wallet-icon.svg" width="25"/></a> Página da carteira
+
+Na página da carteira é possível visualizar as despesas já existentes, adicionar uma nova, editar e remover.
+
+<div align="center">
+  <a href="#">
+    <img alt="page wallet" align="center" src="./public/readme/trybe-wallet-main.gif" height="500px">
+  </a>
+</div>
 
 ## 🪛 Desenvolvimento
 Basta realizar o clone do projeto, instalar das dependências:
