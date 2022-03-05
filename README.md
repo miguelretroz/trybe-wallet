@@ -8,7 +8,7 @@ Projeto construído 100% no Front-end, com tecnológias de front, sem um Back-en
 
 A ideia era construir um CRUD com React e Redux, focando principalmente no uso do Redux para tratamento dos estados.
 
-## 🛠️ Contruído com
+## 🛠️ Construído com
 
 🔹<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
   <img alt="JavaScript" align="center" src="./public/readme/js-logo.svg" height="20">
